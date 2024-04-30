@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Background color for the whole page */
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: auto; /* Centering the container */
+            max-width: 600px; /* Limiting the width of the container */
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 0; /* Remove default margin for paragraphs */
+            color: #555;
+            font-weight: bold; /* Make all paragraphs bold */
+            padding: 10px 0; /* Add padding to top and bottom of paragraphs */
+        }
+
+        .datetime {
+            font-size: 20px;
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to My Project!</h1>
+        <p style="background-color: #f8d7da;">The setup involves creating a web application using Python and Flask. Flask is a lightweight web framework that simplifies web development in Python. The application consists of a Python script (app.py) defining routes and rendering templates to$
+        <p style="background-color: #d4edda;">The Python script (app.py) utilizes Flask's routing system to define an endpoint ('/') that renders the index.html template when accessed. This template serves as the homepage of the web application and contains the HTML structure and content to$
+        <p style="background-color: #cce5ff;">To containerize the web application for portability and reproducibility, Docker is employed. A Dockerfile is created in the project directory to specify the instructions for building the Docker image. These instructions typically include definin$
+        <p style="background-color: #fff3cd;">Once the Dockerfile is configured, the Docker CLI (Command Line Interface) is used to build the Docker image (docker build) and run the containerized application (docker run). This encapsulates the web application and its dependencies into a por$
+        <p style="background-color: #d1ecf1;">In summary, the process involves building a web application with Python and Flask, containerizing it with Docker for portability, and running it as a Docker container for deployment. This approach simplifies the deployment process and ensures co$
+        <div class="datetime" id="datetime"></div>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var datetimeElement = document.getElementById('datetime');
+            datetimeElement.innerText = 'Current Date and Time: ' + now.toLocaleString();
+        }
+
+        // Update date and time every second
+        setInterval(updateDateTime, 1000);
+
+        // Initial update
+        updateDateTime();
+    </script>
+</body>
+
+</html>
+
+
