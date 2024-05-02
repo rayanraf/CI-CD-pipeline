@@ -4,18 +4,17 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/yourusername/your-html-repo.git'
+                git branch: 'main', url: 'https://github.com/rayanraf/CI-CD-pipeline.git'
             }
         }
         stage('Build HTML') {
             steps {
-                // If you have any build steps for your HTML page, add them here
-                // For example, you might run a static site generator like Jekyll or Hugo
+                sh 'npm install' // or any other command to install dependencies
+                sh 'npm run build' // or any other command to build the HTML
             }
         }
         stage('Publish HTML Artifacts') {
             steps {
-                // Archive HTML files as artifacts
                 archiveArtifacts artifacts: '**/*.html', onlyIfSuccessful: true
             }
         }
@@ -23,14 +22,12 @@ pipeline {
     
     post {
         always {
-            // Cleanup any temporary files or resources if needed
+            echo 'Pipeline completed!'
         }
         success {
-            // Notify about successful build if necessary
             echo 'HTML page build successful!'
         }
         failure {
-            // Notify about build failure if necessary
             echo 'HTML page build failed!'
         }
     }
